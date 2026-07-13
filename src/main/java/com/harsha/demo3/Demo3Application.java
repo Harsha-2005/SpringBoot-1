@@ -1,5 +1,6 @@
 package com.harsha.demo3;
 
+import com.harsha.demo3.DependencyInjection.OrderService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -15,6 +16,8 @@ public class Demo3Application {
 		student.setAge(20);
 		System.out.println(student.getName());
 		System.out.println(student.getAge());
-	}
 
+		OrderService orderService=context.getBean(OrderService.class);
+		orderService.placeOrder();
+	}
 }
