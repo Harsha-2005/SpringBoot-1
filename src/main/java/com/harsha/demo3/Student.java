@@ -1,8 +1,15 @@
 package com.harsha.demo3;
 
+import org.springframework.stereotype.Component;
+import java.lang.*;
+@Component
 public class Student {
     String name;
     int age;
+
+    public Student(){
+
+    }
 
     public Student(String name,int age){
         this.name=name;
