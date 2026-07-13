@@ -10,7 +10,8 @@ public class OrderService {
     PaymentService paymentService;
 
     //constructor injection
-    //Note: When we are doing the constructor injection we need not write the auto wired. we can also write the autowired that's our wish.
+    //Note: When we are doing the constructor injection we need not
+    // write the auto wired. we can also write the autowired that's our wish.
 
     OrderService(PaymentService paymentService) {
         this.paymentService = paymentService;
