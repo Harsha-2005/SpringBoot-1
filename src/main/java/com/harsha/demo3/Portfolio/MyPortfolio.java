@@ -17,4 +17,21 @@ public class MyPortfolio {
                 """;
     }
 
+    @GetMapping("/Skills")
+    public String Skills(){
+        return """
+                <h1>Skills</h1>
+                <p>I am proficient in</p>
+                <ul>
+                    <li>Python</li>
+                    <li>C++</li>
+                    <li>C</li>
+                    <li>HTML</li>
+                    <li>Java</li>
+                    <li>CSS</li>
+                </ul>
+                """;
+    }
+
+
 }
