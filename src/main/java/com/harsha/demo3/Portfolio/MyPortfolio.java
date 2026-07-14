@@ -49,5 +49,24 @@ public class MyPortfolio {
         """;
     }
 
+    @GetMapping("/Project")
+    public String Project(){
+        return """
+                <h1>Project</h1>
+                <p>I have done three major projects which will resembles my domain of work that is Machine Learning and Artificial Intelligence.</p>
+                <div>
+                    <h2>OpenEnv Data Pipeline Debugger</h2>
+                    <p>A reinforcement learning agent which will monitor the data pipeline and debug that i there exists any issue and fix it and it will learn by itself through the mistakes.</p>
+                    <h2>SMS Spam Detection System</h2>
+                    <p>I have taken the baseline models and compare them with the LSTM,SVM,Logistic Regression</p>
+                    <h2>AI Audio Book Generator</h2>
+                    <p>This will parse the differnt types of documents and understand the text and repeat it back through audio</p>
+                
+                
+                
+                </div>
+        """
+    }
+
 
 }
