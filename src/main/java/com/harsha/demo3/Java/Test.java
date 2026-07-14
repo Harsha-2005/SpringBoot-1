@@ -1,4 +1,4 @@
-package com.harsha.demo3;
+package com.harsha.demo3.Java;
 
 class P{
     void m1(){
