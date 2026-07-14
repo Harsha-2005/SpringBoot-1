@@ -33,5 +33,21 @@ public class MyPortfolio {
                 """;
     }
 
+    @GetMapping("Education")
+    public String Education(){
+        return """
+                <h1>Education</h1>
+                <p>I am Currently Pursuing B-Tech at Lovely Professional University.</p>
+                <div>
+                    <h1>B-tech</h1>
+                    <p>Lovely Professional University with a TGPA : 7.95</p>
+                    <h1>Intermediate</h1>
+                    <p>Narayana Junior College with a percentage of 96.2%</p>
+                    <h1>Matriculation</h1>
+                    <p>Narayana Junior School with a score of 100</p>
+                </div>
+        """;
+    }
+
 
 }
