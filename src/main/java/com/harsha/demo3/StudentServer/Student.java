@@ -1,6 +1,11 @@
 package com.harsha.demo3.StudentServer;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Student {
+    @Id
     int id;
     String name;
     int age;
