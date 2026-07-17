@@ -1,4 +1,4 @@
-package com.harsha.demo3.StudentServer;
+package com.harsha.demo3.StudentServer.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
