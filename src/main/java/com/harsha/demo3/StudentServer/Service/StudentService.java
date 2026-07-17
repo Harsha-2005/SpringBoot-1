@@ -37,4 +37,8 @@ public class StudentService {
         return studentRepository.findById(id).orElse(null);
     }
 
+    public Student deleteStudent(int id){
+        return studentRepository.findById(id).orElse(null);
+    }
+
 }
