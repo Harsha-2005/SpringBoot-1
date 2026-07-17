@@ -32,4 +32,9 @@ public class StudentService {
     public Student getStudentById(int id){
         return studentRepository.findById(id).orElse(null);
     }
+
+    public Student updateStudent(int id){
+        return studentRepository.findById(id).orElse(null);
+    }
+
 }
