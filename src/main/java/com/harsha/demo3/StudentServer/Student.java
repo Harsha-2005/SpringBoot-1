@@ -11,6 +11,10 @@ public class Student {
     int age;
     String department;
 
+    public Student(){
+
+    }
+
     public int getId() {
         return id;
     }
