@@ -2,6 +2,7 @@ package com.harsha.demo3.StudentServer.Controller;
 
 import com.harsha.demo3.StudentServer.Entity.Student;
 import com.harsha.demo3.StudentServer.Service.StudentService;
+import org.hibernate.boot.jaxb.SourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ public class StudentController {
     public ResponseEntity<Student> create(@RequestBody Student student){
 
         Student result=studentService.studentValidate(student);
+        System.out.println(result);
         if(result==null){
             return ResponseEntity.status(400).body(result);
         }
@@ -35,7 +37,7 @@ public class StudentController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateStudent(@PathVariable int id,@RequestBody Student student){
-        Student updatedStudent=studentService.updateStudent(id);
+        Student updatedStudent=studentService.updateStudent(id, student);
         return ResponseEntity.status(200).body(updatedStudent);
     }
 

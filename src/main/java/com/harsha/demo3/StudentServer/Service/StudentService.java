@@ -5,6 +5,7 @@ import com.harsha.demo3.StudentServer.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.lang.*;
+import java.time.LocalDateTime;
 
 @Service
 public class StudentService {
@@ -24,17 +25,37 @@ public class StudentService {
         if(id<0 || name==null || age<0 || department==null){
             return null;
         }
+//        student.setCreatedAt(LocalDateTime.now());
+//        student.setUpdatedAt(LocalDateTime.now());
+        return studentRepository.save(student);
+    }
 
-        studentRepository.save(student);
-        return student;
+    public Student studentUpdate(int id,Student student){
+        Student result=studentRepository.findById(id).orElse(null);
+        if(result==null){
+            return null;
+        }
+        result.setName(student.getName());
+        result.setAge(student.getAge());
+        result.setDepartment(student.getDepartment());
+//        result.setUpdatedAt(LocalDateTime.now());
+        return studentRepository.save(result);
     }
 
     public Student getStudentById(int id){
         return studentRepository.findById(id).orElse(null);
     }
 
-    public Student updateStudent(int id){
-        return studentRepository.findById(id).orElse(null);
+    public Student updateStudent(int id,Student student){
+        Student result=studentRepository.findById(id).orElse(null);
+        if(result==null){
+            return null;
+        }
+        result.setName(student.getName());
+        result.setAge(student.getAge());
+        result.setDepartment(student.getDepartment());
+//        result.setUpdatedAt(LocalDateTime.now());
+        return studentRepository.save(result);
     }
 
     public Student deleteStudent(int id){

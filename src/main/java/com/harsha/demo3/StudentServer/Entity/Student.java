@@ -1,18 +1,35 @@
 package com.harsha.demo3.StudentServer.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import java.time.LocalDateTime;
 
 @Entity
 public class Student {
     @Id
-    int id;
-    String name;
-    int age;
-    String department;
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String name;
+    private int age;
+    private String department;
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 
     public Student(){
 
+    }
+
+    public Student(int id, String name, String department) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
     }
 
     public int getId() {
