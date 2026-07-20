@@ -1,5 +1,7 @@
 package com.harsha.demo3.StudentServer.Controller;
 
+import com.harsha.demo3.StudentServer.DTO.CreateStudentRequestDTO;
+import com.harsha.demo3.StudentServer.DTO.CreateStudentResponseDTO;
 import com.harsha.demo3.StudentServer.Entity.Student;
 import com.harsha.demo3.StudentServer.Service.StudentService;
 import org.hibernate.boot.jaxb.SourceType;
@@ -17,24 +19,27 @@ public class StudentController {
 
         this.studentService = studentService;
     }
-
+    @CrossOrigin
     @PostMapping("/create")
-    public ResponseEntity<Student> create(@RequestBody Student student){
+    public ResponseEntity<?> storeStudent(@RequestBody CreateStudentRequestDTO createStudentRequestDTO) {
 
-        Student result=studentService.studentValidate(student);
-        System.out.println(result);
+        CreateStudentResponseDTO result=studentService.studentValidate(createStudentRequestDTO);
+//        return studentService.studentValidate(createStudentRequestDTO);
+//        System.out.println(result);
         if(result==null){
             return ResponseEntity.status(400).body(result);
         }
         return ResponseEntity.status(201).body(result);
     }
 
-    @GetMapping("/get/{id}")
+    @CrossOrigin
+    @GetMapping("/getStudent/{id}")
     public ResponseEntity<?> getStudentById(@PathVariable int id){
         Student student=studentService.getStudentById(id);
         return ResponseEntity.status(200).body(student);
     }
 
+    @CrossOrigin
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateStudent(@PathVariable int id,@RequestBody Student student){
         Student updatedStudent=studentService.updateStudent(id, student);
