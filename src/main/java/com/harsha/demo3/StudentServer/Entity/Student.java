@@ -1,6 +1,7 @@
 package com.harsha.demo3.StudentServer.Entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
@@ -11,7 +12,9 @@ import java.time.LocalDateTime;
 @Entity
 public class Student {
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull()
     private int id;
     private String name;
     private int age;

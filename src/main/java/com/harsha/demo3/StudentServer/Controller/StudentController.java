@@ -2,10 +2,12 @@ package com.harsha.demo3.StudentServer.Controller;
 
 import com.harsha.demo3.StudentServer.DTO.CreateStudentRequestDTO;
 import com.harsha.demo3.StudentServer.DTO.CreateStudentResponseDTO;
+import com.harsha.demo3.StudentServer.DTO.CreateStudentUpdateRequestDTO;
 import com.harsha.demo3.StudentServer.Entity.Student;
 import com.harsha.demo3.StudentServer.Service.StudentService;
 import org.hibernate.boot.jaxb.SourceType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,10 +43,12 @@ public class StudentController {
 
     @CrossOrigin
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> updateStudent(@PathVariable int id,@RequestBody Student student){
-        Student updatedStudent=studentService.updateStudent(id, student);
-        return ResponseEntity.status(200).body(updatedStudent);
-    }
+//    public ResponseEntity<?> updateStudent(@PathVariable int id, @RequestBody CreateStudentUpdateRequestDTO createStudentUpdateRequestDTO){
+////        Student updatedStudent=studentService.studentUpdate(id, student);
+////        return ResponseEntity.status(200).body(updatedStudent);
+//        return ResponseEntity<?>(studentService.updateStudent(createStudentUpdateRequestDTO, id),HttpStatus.OK);
+//    }
+
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteStudent(@PathVariable int id){
