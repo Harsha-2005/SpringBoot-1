@@ -1,7 +1,7 @@
 package com.harsha.demo3.StudentServer.Entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
@@ -14,10 +14,15 @@ public class Student {
     @Id
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull()
+    @NotBlank
     private int id;
+    @Size(min=10,max=26)
+    @NotBlank(message = "Name cannot be blank")
     private String name;
+    @Min(value=18,message = "You are not eligible")
+    @Positive
     private int age;
+    @Size(min=5,max=26)
     private String department;
     @CreationTimestamp
     @Column(updatable = false)
