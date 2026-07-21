@@ -5,6 +5,7 @@ import com.harsha.demo3.StudentServer.DTO.CreateStudentResponseDTO;
 import com.harsha.demo3.StudentServer.DTO.CreateStudentUpdateRequestDTO;
 import com.harsha.demo3.StudentServer.DTO.CreateStudentUpdateResponseDTO;
 import com.harsha.demo3.StudentServer.Entity.Student;
+import com.harsha.demo3.StudentServer.Exception.EmailAlreadyExistsException;
 import com.harsha.demo3.StudentServer.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,9 @@ public class StudentService {
     }
 
     public CreateStudentResponseDTO studentValidate(CreateStudentRequestDTO createStudentRequestDTO) {
+        if(studentRepository.existsByEmail(createStudentRequestDTO.getEmail())) {
+            throw new EmailAlreadyExistsException("Email '"+createStudentRequestDTO.getEmail()+"'is already registered");
+        }
         Student student=mapToStudent(createStudentRequestDTO);
         studentRepository.save(student);
         return mapToResponseDTO(student);
@@ -67,6 +71,7 @@ public class StudentService {
         student.setName(createStudentRequestDTO.getName());
         student.setAge(createStudentRequestDTO.getAge());
         student.setDepartment(createStudentRequestDTO.getDepartment());
+        student.setEmail(createStudentRequestDTO.getEmail());
 //        student.setUpdatedAt(LocalDateTime.now());
 //        student.setCreatedAt(LocalDateTime.now());
         return student;

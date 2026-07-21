@@ -23,11 +23,19 @@ public class Student {
     private int age;
 //    @Size(min=5,max=26)
     private String department;
+
+    @Column(unique = true,nullable = false)
+    private String email;
+
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime createdAt;
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+
+
+
 
     public Student(){
 
@@ -71,5 +79,9 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
