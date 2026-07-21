@@ -36,16 +36,18 @@ public class StudentController {
 
     @CrossOrigin
     @GetMapping("/getStudent/{id}")
-    public ResponseEntity<?> getStudentById(@PathVariable int id){
+    public ResponseEntity<?> getStudentById(@PathVariable int id) throws Exception {
         Student student=studentService.getStudentById(id);
-        return ResponseEntity.status(200).body(student);
+        return ResponseEntity.ok(student);
     }
 
-    @CrossOrigin
-    @PutMapping("/update/{id}")
-//    public ResponseEntity<?> updateStudent(@PathVariable int id, @RequestBody CreateStudentUpdateRequestDTO createStudentUpdateRequestDTO){
-////        Student updatedStudent=studentService.studentUpdate(id, student);
-////        return ResponseEntity.status(200).body(updatedStudent);
+//    @CrossOrigin
+//    @PutMapping("/update/{id}")
+//    public ResponseEntity<?> updateStudent(@PathVariable int id, @RequestBody UpdateStudentRequestDTO updateStudentRequestDTO){
+//    @PathVariable int id;
+//    @RequestBody UpdateStudentRequestDTO
+//        Student updatedStudent=studentService.studentUpdate(id, student);
+//        return ResponseEntity.status(200).body(updatedStudent);
 //        return ResponseEntity<?>(studentService.updateStudent(createStudentUpdateRequestDTO, id),HttpStatus.OK);
 //    }
 

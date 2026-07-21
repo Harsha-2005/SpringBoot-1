@@ -14,15 +14,14 @@ public class Student {
     @Id
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotBlank
+//    @NotBlank
     private int id;
-    @Size(min=10,max=26)
-    @NotBlank(message = "Name cannot be blank")
+//    @Size(min=10,max=26)
+//    @NotBlank(message = "Name cannot be blank")
     private String name;
-    @Min(value=18,message = "You are not eligible")
-    @Positive
+//    @Min(value=18,message = "You are not eligible")
     private int age;
-    @Size(min=5,max=26)
+//    @Size(min=5,max=26)
     private String department;
     @CreationTimestamp
     @Column(updatable = false)

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.lang.*;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -38,9 +39,9 @@ public class StudentService {
 //        return studentRepository.save(result);
 //    }
 
-    public Student getStudentById(int id){
-
-        return studentRepository.findById(id).orElse(null);
+    public Student getStudentById(int id) throws Exception{
+        Optional<Student> student=studentRepository.findById(id);
+        return student.get();
 
     }
 
